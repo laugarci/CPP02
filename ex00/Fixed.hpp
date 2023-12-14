@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:34:21 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/14 16:38:35 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/14 17:53:43 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ class Fixed {
 	public:
 		Fixed();
 		~Fixed();
-		Fixed(Fixed& fix);
-		Fixed&	operator=(Fixed& fix);
+		Fixed(const Fixed&);
+		Fixed&	operator=(const Fixed& fix);
 		int getRawBits(void);
 		void setRawBits(int const raw);
 };
-
 
 #endif
