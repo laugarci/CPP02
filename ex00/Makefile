@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = OrtodoxCanonicalForm
+NAME = fixed
 
 SRC_FILES = main.cpp Fixed.cpp
 OBJ_DIR = objs/
