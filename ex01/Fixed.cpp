@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:01:02 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/14 17:53:45 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:40:19 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ Fixed::~Fixed()
 	std::cout << "Destructor called" << std::endl;
 }
 
-Fixed::Fixed(const int value)
+Fixed::Fixed(const int num)
 {
 	std::cout << "Int constructor called" << std::endl;
+	this->_value = value << _frac;
 }
 
-Fixed::Fixed(const float number)
+Fixed::Fixed(const float num)
 {
 	std::cout << "float constructor called" << std::endl;
 }
