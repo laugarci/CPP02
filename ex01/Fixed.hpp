@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <cmath>
 
 class Fixed {
 	private:
@@ -27,8 +28,6 @@ class Fixed {
 		~Fixed();
 		Fixed(const Fixed& oldfix);
 		Fixed&	operator=(const Fixed& oldfix);
-		int getRawBits(void) const;
-		void setRawBits(int const raw);
 		floeat toFloat(void) const;
 		int	toInt(void) const;
 };
