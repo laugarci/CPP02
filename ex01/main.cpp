@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 14:31:14 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/18 14:37:16 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/19 11:25:06 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main( void )
 	Fixed const d( b );
 
 	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl
+	std::cout << "a is " << a << std::endl;
 	std::cout << "b is " << b << std::endl;
 	std::cout << "c is " << c << std::endl;
 	std::cout << "d is " << d << std::endl;

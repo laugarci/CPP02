@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:01:02 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/18 14:40:19 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/19 12:12:14 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,7 @@ Fixed::~Fixed()
 Fixed::Fixed(const int num)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_value = value << _frac;
-}
-
-Fixed::Fixed(const float num)
-{
-	std::cout << "float constructor called" << std::endl;
+	this->_fixed = num << _frac; 
 }
 
 Fixed::Fixed(const Fixed& oldfix)
@@ -48,12 +43,35 @@ Fixed& Fixed::operator=(const Fixed& oldfix)
 	return (*this);
 }
 
-float	toFloat(void) const
+int	Fixed::getRawBits(void) const
 {
-	return ()
+	return (this->_fixed);
 }
 
-int	toInt(void) const
+void	Fixed::setRawBits(int const raw)
 {
-	return(this->_fixed = roundf(_fixed));
+	std::cout << "setRawBits member called" << std::endl;
+	this->_fixed = raw;
+}
+
+Fixed::Fixed(const float num)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_fixed = roundf(num * (1 << _frac));
+}
+
+float	Fixed::toFloat() const
+{
+	return (this->_fixed / (float)(1 << _frac));
+}
+
+int		Fixed::toInt(void) const
+{
+	return (this->_fixed >> _frac);
+}
+
+std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+{
+	out << fixed.toFloat();
+	return (out);
 }
