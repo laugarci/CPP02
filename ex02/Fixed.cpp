@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:01:02 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/19 12:12:14 by laugarci         ###   ########.fr       */
+/*   Updated: 2023/12/20 12:51:13 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,33 +14,48 @@
 
 Fixed::Fixed()
 {
-	std::cout << "Default constructor called" << std::endl;
 	this->_fixed = 0;
 }
 
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(const int num)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_fixed = num << _frac; 
 }
 
 Fixed::Fixed(const Fixed& oldfix)
 {
 	*this = oldfix;
-	std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed& Fixed::operator=(const Fixed& oldfix)
 {
 	if (this != &oldfix)
 		this->_fixed = oldfix.getRawBits();
-	std::cout << "Copy assigment operator called" << std::endl;
 	return (*this);
+}
+
+bool Fixed::operator>(const Fixed& oldfix) const
+{
+	return (this->_fixed > oldfix.getRawBits());
+}
+
+bool Fixed::operator<(const Fixed& oldfix) const
+{
+	return (this->_fixed < oldfix.getRawBits());
+}
+
+bool	Fixed::operator>=(const Fixed& oldfix) const
+{
+	return (this->_fixed >= oldfix.getRawBits());
+}
+
+bool	Fixed::operator<=(const Fixed& oldfix) const
+{
+	return (this->_fixed <= oldfix.getRawBits());
 }
 
 int	Fixed::getRawBits(void) const
@@ -50,13 +65,11 @@ int	Fixed::getRawBits(void) const
 
 void	Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member called" << std::endl;
 	this->_fixed = raw;
 }
 
 Fixed::Fixed(const float num)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_fixed = roundf(num * (1 << _frac));
 }
 
@@ -68,6 +81,26 @@ float	Fixed::toFloat() const
 int		Fixed::toInt(void) const
 {
 	return (this->_fixed >> _frac);
+}
+
+const Fixed& Fixed::min(const Fixed& num1, const Fixed& num2)
+{
+	return (num1 < num2 ? num1 : num2);
+}
+
+Fixed& Fixed::min(Fixed& num1, Fixed& num2)
+{
+	return (num1 < num2 ? num1 : num2);
+}
+
+const Fixed&	Fixed::max(const Fixed& num1, const Fixed& num2)
+{
+	return (num1 > num2 ? num1 : num2);
+}
+
+Fixed& Fixed::max(Fixed& num1, Fixed& num2)
+{
+	return (num1 > num2 ? num1 : num2);
 }
 
 std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
