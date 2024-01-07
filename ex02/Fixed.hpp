@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:34:21 by laugarci          #+#    #+#             */
-/*   Updated: 2023/12/20 12:51:17 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/01/07 19:02:33 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@ class Fixed {
 		bool operator==(const Fixed& oldfix) const;
 		bool operator!=(const Fixed& oldfix) const;
 		//Arithmetic operators
-/*		Fixed& operator+(const Fixed& oldfix);
-		Fixed& operator-(const Fixed& oldfix);
+//		Fixed& operator+(const Fixed& oldfix);
+/*		Fixed& operator-(const Fixed& oldfix);
 		Fixed& operator*(const Fixed& oldfix);
 		Fixed& operator/(const Fixed& oldfix);
 		//Increment/decrement operators
