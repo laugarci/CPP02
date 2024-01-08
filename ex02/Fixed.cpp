@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:01:02 by laugarci          #+#    #+#             */
-/*   Updated: 2024/01/07 19:02:35 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:46:06 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ Fixed::Fixed(const int num)
 Fixed::Fixed(const Fixed& oldfix)
 {
 	*this = oldfix;
+}
+
+Fixed::Fixed(const float num)
+{
+	this->_fixed = roundf(num * (1 << _frac));
 }
 
 Fixed& Fixed::operator=(const Fixed& oldfix)
@@ -66,11 +71,6 @@ int	Fixed::getRawBits(void) const
 void	Fixed::setRawBits(int const raw)
 {
 	this->_fixed = raw;
-}
-
-Fixed::Fixed(const float num)
-{
-	this->_fixed = roundf(num * (1 << _frac));
 }
 
 float	Fixed::toFloat() const
