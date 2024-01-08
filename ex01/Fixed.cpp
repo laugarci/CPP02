@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:01:02 by laugarci          #+#    #+#             */
-/*   Updated: 2024/01/02 16:19:50 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/01/08 11:14:57 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,13 @@ Fixed::~Fixed()
 Fixed::Fixed(const int num)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_fixed = num << _frac; 
+	this->_fixed = num << _frac;
+}
+
+Fixed::Fixed(const float num)
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_fixed = roundf(num * (1 << this->_frac));
 }
 
 Fixed::Fixed(const Fixed& oldfix)
@@ -52,12 +58,6 @@ void	Fixed::setRawBits(int const raw)
 {
 	std::cout << "setRawBits member called" << std::endl;
 	this->_fixed = raw;
-}
-
-Fixed::Fixed(const float num)
-{
-	std::cout << "Float constructor called" << std::endl;
-	this->_fixed = roundf(num * (1 << _frac));
 }
 
 float	Fixed::toFloat() const
