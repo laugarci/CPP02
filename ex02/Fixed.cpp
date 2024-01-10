@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:01:02 by laugarci          #+#    #+#             */
-/*   Updated: 2024/01/10 16:12:05 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/01/10 17:39:30 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ Fixed& Fixed::operator=(const Fixed& oldfix)
 	return (*this);
 }
 
+//Comparison operators
 bool Fixed::operator>(const Fixed& oldfix) const
 {
 	return (this->_fixed > oldfix.getRawBits());
@@ -69,6 +70,38 @@ bool	Fixed::operator<=(const Fixed& oldfix) const
 	return (this->_fixed <= oldfix.getRawBits());
 }
 
+bool	Fixed::operator==( const Fixed &oldfix ) const
+{
+	return ( this->_fixed == oldfix.getRawBits() );
+}
+
+bool	Fixed::operator!=( const Fixed &oldfix ) const
+{
+	return ( this->_fixed != oldfix.getRawBits() );
+}
+
+//Arithmetic operators
+Fixed Fixed::operator+(const Fixed& oldfix) const
+{
+	return (this->toFloat() + oldfix.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed& oldfix) const
+{
+	return (this->toFloat() - oldfix.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& oldfix) const
+{
+	return (this->toFloat() * oldfix.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& oldfix) const
+{
+	return (this->toFloat() / oldfix.toFloat());
+}
+
+//Increment/decrement operators
 Fixed Fixed::operator++(void)
 {
 	this->_fixed++;
@@ -132,18 +165,27 @@ Fixed& Fixed::min(Fixed& num1, Fixed& num2)
 //Devuelve el numero mas grande
 const Fixed&	Fixed::max(const Fixed& num1, const Fixed& num2)
 {
+	std::cout << "const" << std::endl;
 	return (num1 > num2 ? num1 : num2);
 }
 
 //Devuelve el numero mas grande
 Fixed& Fixed::max(Fixed& num1, Fixed& num2)
 {
+	std::cout << "no const" << std::endl;
 	return (num1 > num2 ? num1 : num2);
 }
 
-//Imprime
-std::ostream& operator<<(std::ostream& out, const Fixed& fixed)
+// Operator: Output
+std::ostream&	operator<<( std::ostream& out, Fixed& fixp )
 {
-	out << fixed.toFloat();
+	out << fixp.toFloat();
+	return (out);
+}
+
+// Operator: Constant: Output
+std::ostream&	operator<<( std::ostream& out, const Fixed& fixp )
+{
+	out << fixp.toFloat();
 	return (out);
 }
