@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:01:02 by laugarci          #+#    #+#             */
-/*   Updated: 2024/01/08 11:14:57 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/01/11 11:35:30 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@ Fixed::Fixed(const float num)
 
 Fixed::Fixed(const Fixed& oldfix)
 {
-	*this = oldfix;
 	std::cout << "Copy constructor called" << std::endl;
+	*this = oldfix;
 }
 
 Fixed& Fixed::operator=(const Fixed& oldfix)
 {
+	std::cout << "Copy assigment operator called" << std::endl;
 	if (this != &oldfix)
 		this->_fixed = oldfix.getRawBits();
-	std::cout << "Copy assigment operator called" << std::endl;
 	return (*this);
 }
 
