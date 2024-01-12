@@ -6,7 +6,7 @@
 /*   By: laugarci <laugarci@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:34:21 by laugarci          #+#    #+#             */
-/*   Updated: 2024/01/10 16:53:11 by laugarci         ###   ########.fr       */
+/*   Updated: 2024/01/12 12:26:09 by laugarci         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,18 +42,18 @@ class Fixed {
 		//Increment/decrement operators
 		Fixed	operator++(void);
 		Fixed	operator++(int);
-		Fixed	operator--(void); //done
-		Fixed	operator--(int); //done
+		Fixed	operator--(void);
+		Fixed	operator--(int);
 		//Overloaded member functions
-		static Fixed&			min(Fixed& num1, Fixed& num2); //done
-		static const Fixed&	min(const Fixed& num1, const Fixed& num2); //done
-		static Fixed&			max(Fixed& num1, Fixed& num2); //done
-		static const Fixed&	max(const Fixed& num1, const Fixed& num2); //done
+		static Fixed&			min(Fixed& num1, Fixed& num2);
+		static const Fixed&	min(const Fixed& num1, const Fixed& num2);
+		static Fixed&			max(Fixed& num1, Fixed& num2);
+		static const Fixed&	max(const Fixed& num1, const Fixed& num2);
 		//Other functions
-		int				getRawBits(void) const; //done
-		void			setRawBits(int const raw); //done
-		float 			toFloat (void) const; //done
-		int 			toInt (void) const; //done
+		int				getRawBits(void) const;
+		void			setRawBits(int const raw);
+		float 			toFloat (void) const;
+		int 			toInt (void) const;
 };
 
 std::ostream&	operator<<( std::ostream& out, Fixed& fixp );
